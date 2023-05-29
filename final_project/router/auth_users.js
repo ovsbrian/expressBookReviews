@@ -15,8 +15,11 @@ const authenticatedUser = (username,password)=>{ //returns boolean
 
 //only registered users can login
 regd_users.post("/login", (req,res) => {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
+ 
+    if (users[req.body.username]) {
+        return res.status(400).json({message: "Successfully logged in"});
+    }
+    return res.status(300).json({message: "ya tas registrado pariente"});
 });
 
 // Add a book review
